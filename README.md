@@ -117,7 +117,7 @@ Here is a block diagram of the MI:
 Again, the JTAG interface is open so we can connect a TI JTAG probe (Standard TI 14 pin JTAG connector pinout) and use TI [code composer studio](https://www.ti.com/tool/CCSTUDIO) to do some tests. The flash content can be easily dumped too. The device does not implement secure boot, so that modified firmware can be executed. 
 
 > [!NOTE]
-> Note that the MI implements a short circuit / over-current protection (hardware circuit) on the grid side.
+> Note that the MI implements a short circuit / over-current protection (hardware circuit) on the grid side. However, the grid side MOSFETs can be overheated and may break down and trigger a shortcircuit.
 
 
 ## Firmware update 
@@ -259,7 +259,7 @@ Here are some instructions to reproduce part of the exploit chain post-patch.
 Modifications of the firmware update files can be performed, then CRCs and Headers can be re-calculated according the the [image-format](#image-format) section. These modified update files can be installed into the devices according to the following instructions.
 
 > [!WARNING]
-> By modifying the firmware of the MI, the control of the power electronics can be changed and this is safety relevant. **Do not connect a device with modified firmware to the grid**. A device with modified firmware can also be overheated / destroyed / bricked. I do not assume any responsibility for any damage.
+> By modifying the firmware of the MI, the control of the power electronics can be changed and this is safety relevant. **Do not connect a device with modified firmware to the grid**. A device with modified firmware can also be overheated / destroyed / bricked (DTU can be bricked too). I do not assume any responsibility for any damage.
 
 ### Restrictions
 
@@ -331,4 +331,4 @@ We can hope that in the future proper security will be implemented on these devi
 * 2023-09-28: First article @Heise.
 * 2023-09-29: All cloud vulnerabilities have been patched, Heise confirmed.
 * 2023-09-29: Main parts of the report has been sent to the manufacturer.
-
+* 2024-01-02: This report
